@@ -1,0 +1,17 @@
+{
+  "name": "holmboe/blank",
+  "description": "Blank box for network PXE or local ISO boot scenarios",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "providers": [
+        {
+          "name": "vmware_desktop",
+          "url": "file:///home/nn/code/github.com/holmboe/vagrant-blank-box/blank-vmware_desktop.box",
+          "checksum_type": "sha1",
+          "checksum": "95cfdf9a5a2c918d5f1fe883f76356909d6329aa"
+        }
+      ]
+    }
+  ]
+}

@@ -28,7 +28,18 @@ After creating the VM with Virtualbox use Vagrants built-in awesome support for 
 vagrant package --base blank --output blank-virtualbox.box
 ```
 
-The image file is a gzip compressed tarball. For the sake of version control we have extracted the contents into `blank-virtualbox`. And then added a "metadata.json" file because the documentation says it should be there.
+The image file is a gzip compressed tarball. For the sake of version control we have extracted the contents into `blank-virtualbox`. Vagrant packages the Virtualbox up like so:
+
+```
+Vagrantfile
+box-disk001.vmdk
+box-disk002.vmdk
+box-disk003.vmdk
+box-disk004.vmdk
+box.ovf
+```
+
+After this we added a `metadata.json` file because the documentation says it should be there, and also removed the `base_mac` hardcoded generated value in `Vagrantfile`.
 
 <!--
 Guide for Virtualbox 5.2.42
@@ -112,7 +123,7 @@ The contents of the Vagrant box is documented in https://www.vagrantup.com/docs/
 
 > The files that are strictly required for a VMware machine to function are: nvram, vmsd, vmx, vmxf, and vmdk files.
 >
-> There is also the "metadata.json" file used by Vagrant itself.
+> There is also the `metadata.json` file used by Vagrant itself.
 
 Once we have created a suitable virtual machine in VMware Workstation we have:
 

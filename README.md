@@ -4,13 +4,94 @@ An empty box to test PXE booting over the network, or booting from local ISO fil
 
 Our goal is to have a virtual box with 2 vCPU, 2 GB RAM, 2x CD/DVD ROM drives, 4x network adapters, 4x storage devices, and an enabled USB controller. The boot order should be:
 
-- Network
 - Removable devices
 - CD-ROM drive
 - Hard drive
+- Network
 
 The hardware should be compatible with Linux 3.x, which is good as far back as CentOS 7 and Ubuntu 16.04.
 
+
+## Import this box locally
+
+VMware Workstation:
+
+```
+vagrant box add blank-box.json --provider vmware_desktop
+vagrant box add blank-box.json --provider virtualbox
+```
+
+
+## Oracle Virtualbox
+
+<!--
+Guide for Virtualbox 5.2.42
+
+Choose to create a new VM
+
+Name and operating system
+Name: blank
+Type: Linux
+Version: Other Linux (64-bit)
+
+Memory size: 1024 MB
+
+Choose "Create a virtual hard disk now"
+
+File location: blank-disk1
+File size: 10 GB
+Choose VDI
+Choose Dynamically allocated
+
+Right click
+Choose Settings
+
+System -> Motherboard
+Boot order:
+1. Check: Floppy
+2. Check: Optical
+3. Check: Hard Disk
+4. Check: Network
+Chipset: PIIX3
+Pointing Device: USB Tablet
+Extended Features:
+- Check Enable I/O APIC
+- Uncheck EFI
+- Check Hardware Clock in UTC Time
+
+System -> Processor
+- Check Enable PAE/NX
+- Processor(s): 2
+
+System -> Acceleration
+Paravirtualization Interface: Default
+Hardware Virtualization:
+- Check: Enable VT-x/AMD-V
+- Check: Enable Nested Paging
+
+Storage -> Make it so:
+
+- Controller: IDE
+  - "Empty" optical disc
+    Optical Drive: IDE Primary Master
+    Check: Live CD/DVD
+  - "Empty" optical disc
+    Optical Drive: IDE Primary Slave
+    Check: Live CD/DVD
+- Controller: SATA
+  - Name: blank-disk1.vdi
+    Dynamically Allocated
+    Uncheck: Solid-state Drive
+    Uncheck: Hot-pluggable
+
+Then use Vagrants built-in awesome support for Virtualbox to package it up:
+
+```
+vagrant package --base blank --output blank-virtualbox.box
+```
+
+The image file is a gzip compressed tarball. For the sake of version control we have extracted the contents into `blank-virtualbox`
+-->
 
 ## VMware Workstation Pro
 

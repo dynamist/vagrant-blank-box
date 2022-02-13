@@ -9,7 +9,18 @@
           "name": "vmware_desktop",
           "url": "file:///home/nn/code/github.com/holmboe/vagrant-blank-box/blank-vmware_desktop.box",
           "checksum_type": "sha1",
-          "checksum": "95cfdf9a5a2c918d5f1fe883f76356909d6329aa"
+          "checksum": "e41607ab281aec79e44b5b782d68ff6d827d2f10"
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "file:///home/nn/code/github.com/holmboe/vagrant-blank-box/blank-virtualbox.box",
+          "checksum_type": "sha1",
+          "checksum": "5de2f12fb1266bfb9a2481f1d3645e79d5edd027"
         }
       ]
     }

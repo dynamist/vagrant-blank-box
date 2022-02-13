@@ -2,7 +2,7 @@
 
 An empty box to test PXE booting over the network, or booting from local ISO files. And possibly attach USB devices, or allocate some storage on local attached disks.
 
-Our goal is to have a virtual box with 2 vCPU, 2 GB RAM, 2x CD/DVD ROM drives, 4x network adapters, 4x storage devices, and an enabled USB controller. The boot order should be:
+Our goal is to have a virtual box with 2 vCPU, 1 GB RAM, 2x CD/DVD ROM drives, 4x network adapters, 4x storage devices, and an enabled USB controller. The boot order should be:
 
 - Removable devices
 - CD-ROM drive
@@ -14,8 +14,6 @@ The hardware should be compatible with Linux 3.x, which is good as far back as C
 
 ## Import this box locally
 
-VMware Workstation:
-
 ```
 vagrant box add blank-box.json --provider vmware_desktop
 vagrant box add blank-box.json --provider virtualbox
@@ -23,6 +21,14 @@ vagrant box add blank-box.json --provider virtualbox
 
 
 ## Oracle Virtualbox
+
+After creating the VM with Virtualbox use Vagrants built-in awesome support for Virtualbox to package it up:
+
+```
+vagrant package --base blank --output blank-virtualbox.box
+```
+
+The image file is a gzip compressed tarball. For the sake of version control we have extracted the contents into `blank-virtualbox`. And then added a "metadata.json" file because the documentation says it should be there.
 
 <!--
 Guide for Virtualbox 5.2.42
@@ -83,14 +89,6 @@ Storage -> Make it so:
     Dynamically Allocated
     Uncheck: Solid-state Drive
     Uncheck: Hot-pluggable
-
-Then use Vagrants built-in awesome support for Virtualbox to package it up:
-
-```
-vagrant package --base blank --output blank-virtualbox.box
-```
-
-The image file is a gzip compressed tarball. For the sake of version control we have extracted the contents into `blank-virtualbox`
 -->
 
 ## VMware Workstation Pro
